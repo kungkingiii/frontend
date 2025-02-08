@@ -58,7 +58,7 @@ const Profile = () => {
             <Link to={`/course/${course.id}`} style={{ color: "blue" }}>ดูรายละเอียด</Link>
           </div>
         ))}
-        <Link to={`/`} style={{ color: "blue" }}>all couses</Link>
+        <Link to={`/home`} style={{ color: "blue" }}>all couses</Link>
       </div>
     </div>
   );

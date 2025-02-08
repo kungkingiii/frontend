@@ -17,7 +17,7 @@ const Register = () => {
     setMessage(""); // เคลียร์ข้อความก่อนหน้า
 
     try {
-      const res = await axios.post(`${URL}/register`, { username, name, email, phone, password });
+      await axios.post(`${URL}/register`, { username, name, email, phone, password });
       setMessage("สมัครสมาชิกสำเร็จ! กรุณาเข้าสู่ระบบ");
       setTimeout(() => navigate("/login"), 2000); // รอ 2 วิ แล้วไปหน้า Login
     } catch (err) {
