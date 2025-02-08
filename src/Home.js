@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { URL } from "./env";
 
 const Home = () => {
   const [courses, setCourses] = useState([]);
   const [user, setUser] = useState(null);
   const [findCourse, setFindCourses] = useState("");
-  const [error, setError] = useState(null);
-
   useEffect(() => {
     axios.get(`${URL}/courses`)
       .then(response =>
@@ -78,7 +76,6 @@ const Home = () => {
       </div>
       <div style={{ padding: "20px" }}>
         <h1>Our courses</h1>
-        {error && <p style={{ color: "red" }}>{error}</p>}
         {courses.map(course => (
           <div key={course.id} style={{ marginBottom: "10px" }}>
             <h3>{course.title}</h3>

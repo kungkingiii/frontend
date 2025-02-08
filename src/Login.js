@@ -43,7 +43,7 @@ const Login = () => {
         /><br /><br />
         <button type="submit">เข้าสู่ระบบ</button>
       </form>
-      <Link to="/">Home</Link>
+      <Link to="/home">Home</Link>
     </div>
   );
 };
