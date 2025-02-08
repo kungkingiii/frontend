@@ -71,7 +71,7 @@ const CourseDetail = () => {
       <br></br>
       <Link to="/profile">Your Courses</Link>
       <br></br>
-      <Link to="/Home">Home</Link>
+      <Link to="/">Home</Link>
       {user ? (
         <p>Username: {user.username}</p>
       )
