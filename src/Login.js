@@ -18,7 +18,7 @@ const Login = () => {
       localStorage.setItem("token", res.data.token); // บันทึก Token ใน localStorage
       navigate("/profile"); // ไปที่หน้าโปรไฟล์
     } catch (err) {
-      setError("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+      setError("username or password not correct!");
     }
   };
 
@@ -92,6 +92,7 @@ const Login = () => {
                     </button>
                   </div>
                 </form>
+                {error && <p style={{ color: "red" }}>{error}</p>}
               </div>
             </div>
           </div>
