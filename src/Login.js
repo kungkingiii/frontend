@@ -23,28 +23,84 @@ const Login = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>เข้าสู่ระบบ</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="ชื่อผู้ใช้"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        /><br /><br />
-        <input
-          type="password"
-          placeholder="รหัสผ่าน"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        /><br /><br />
-        <button type="submit">เข้าสู่ระบบ</button>
-      </form>
-      <Link to="/home">Home</Link>
+
+    <div>
+      <header id="header-top" class="header-top">
+        <ul>
+          <div class="header-top-left">
+            <li class="header-top-contact">
+              <Link to="/register">register</Link>
+            </li>
+          </div>
+        </ul>
+      </header>
+      <section class="top-area">
+        <div class="header-area">
+          <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy" data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                  <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">Learning<span>Courses</span></a>
+              </div>
+              <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                  <li class="scroll"> <Link to="/home">home</Link></li>
+                  <li class="scroll"> <Link to="/home">about us</Link></li>
+                  <li class="scroll"> <Link to="/home">contact us</Link></li>
+                </ul>
+              </div>
+
+            </div>
+          </nav>
+        </div>
+        <div class="clearfix"></div>
+      </section>
+      <section class="contact_section layout_padding-bottom">
+        <div class="container">
+          <div class="heading_container">
+            <h2>
+              Login
+            </h2>
+          </div>
+          <div class="row">
+            <div class="col-md-7">
+              <div class="form_container">
+                <form action="" onSubmit={handleLogin}>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div class="btn_box">
+                    <button>
+                      submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
+
+
   );
 };
 

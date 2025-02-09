@@ -126,14 +126,12 @@ const Home = () => {
           <div class="welcome-hero-serch-box">
             <div class="welcome-hero-form">
               <div class="single-welcome-hero-form">
-                {/* <form action="index.html"> */}
                 <input
                   type="text" placeholder="find your course"
                   value={findCourse}
                   onChange={(e) => setFindCourses(e.target.value)}
                   required
                 />
-                {/* </form> */}
               </div>
             </div>
             <div class="welcome-hero-serch">
@@ -155,36 +153,31 @@ const Home = () => {
 
       </section>
 
-      <div style={{ padding: "20px" }}>
-        <form onSubmit={handleSearch}>
-          <input
-            type="text"
-            placeholder="find your course"
-            value={findCourse}
-            onChange={(e) => setFindCourses(e.target.value)}
-            required
-          /><button
-            type="submit">search</button>
-          <br /><br />
-
-        </form>
-        <form onSubmit={handleGet}>
-
-          <button
-
-            type="submit">all courses</button>
-        </form>
-      </div>
-      <div style={{ padding: "20px" }}>
-        <h1>Our courses</h1>
-        {courses.map(course => (
-          <div key={course.id} style={{ marginBottom: "10px" }}>
-            <h3>{course.title}</h3>
-            <p>{course.description}</p>
-            <Link to={`/course/${course.id}`} style={{ color: "blue" }}>ดูรายละเอียด</Link>
+      <section id="works" class="works">
+        <div class="container">
+          <div class="section-header">
+            <h2>Our courses</h2>
+            <p>Explore our courses here!</p>
           </div>
-        ))}
-      </div>
+          <div class="works-content">
+            <div class="row">
+              {courses.map((course, id) => (
+                <div class="col-md-4 col-sm-6" key={id}>
+                  <div class="single-how-works">
+                    <div class="single-how-works-icon">
+                      <i class="flaticon-lightbulb-idea"></i>
+                    </div>
+                    <h2>{course.title}</h2>
+                    <p>{course.description}</p>
+                    <Link to={`/course/${course.id}`} >read more...</Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </section>
 
     </div>
   );
