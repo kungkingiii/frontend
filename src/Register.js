@@ -30,6 +30,7 @@ const Register = () => {
       setMessage("username or email already exist!");
     }
   };
+  console.log(username, name, email, phone, password)
 
   return (
     <div>

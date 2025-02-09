@@ -135,6 +135,7 @@ const Profile = () => {
               ))}
             </div>
           </div>
+          <Link to="/home">all courses</Link>
         </div>
 
       </section>
