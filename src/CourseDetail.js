@@ -17,10 +17,10 @@ const CourseDetail = () => {
       .catch(error => console.error("Error fetching course details:", error));
     const token = localStorage.getItem("token");
     if (token) {
-      axios.get(`${URL}/profile`, {
+      axios.get(`${URL}/userdata`, {
         headers: { Authorization: `Bearer ${token}` }
       })
-        .then(res => setUser(res.data.userData))
+        .then(res => setUser(res.data))
         .catch(() => {
           localStorage.removeItem("token");
         });
