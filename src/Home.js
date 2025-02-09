@@ -2,6 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { URL } from "./env";
+import "./assets/css/responsive.css"
+import "./assets/css/style.css"
+import "./assets/css/bootsnav.css"
+import "./assets/css/bootstrap.min.css"
+import "./assets/css/flaticon.css"
+import "./assets/css/animate.css"
+import "./assets/css/linearicons.css"
+import "./assets/css/slick-theme.css"
+import "./assets/css/slick.css"
+import "./assets/css/font-awesome.min.css"
 
 const Home = () => {
   const [courses, setCourses] = useState([]);
@@ -27,7 +37,7 @@ const Home = () => {
     }
   }, []);
 
-  console.log("userrrr", user);
+  console.log("userrrr", user, findCourse);
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
@@ -54,6 +64,97 @@ const Home = () => {
   };
   return (
     <div>
+      <header id="header-top" class="header-top">
+        <ul>
+
+          {user ? (
+            <div class="header-top-left">
+
+              <li class="header-top-contact">
+                <h1>Welcome! {user.username}</h1>
+              </li>
+              <li class="header-top-contact">
+                <Link to="/profile">profile</Link>
+              </li>
+
+            </div>
+          )
+            : (
+              <div class="header-top-left">
+                <li class="header-top-contact">
+                  <Link to="/register">register</Link>
+                </li>
+                <li class="header-top-contact">
+                  <Link to="/login" >login</Link>
+                </li>
+
+              </div>
+            )}
+
+        </ul>
+
+      </header>
+      <section class="top-area">
+        <div class="header-area">
+          <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy" data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                  <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">Learning<span>Courses</span></a>
+              </div>
+              <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                  <li class="scroll"> <Link to="/home">home</Link></li>
+                  <li class="scroll"> <Link to="/home">about us</Link></li>
+                  <li class="scroll"> <Link to="/home">contact us</Link></li>
+                </ul>
+              </div>
+
+            </div>
+          </nav>
+        </div>
+        <div class="clearfix"></div>
+      </section>
+
+      <section id="home" class="welcome-hero">
+        <div class="container">
+          <div class="welcome-hero-txt">
+            <h2>best place to fine and leaning new skill <br /> that all you need </h2>
+          </div>
+          <div class="welcome-hero-serch-box">
+            <div class="welcome-hero-form">
+              <div class="single-welcome-hero-form">
+                {/* <form action="index.html"> */}
+                <input
+                  type="text" placeholder="find your course"
+                  value={findCourse}
+                  onChange={(e) => setFindCourses(e.target.value)}
+                  required
+                />
+                {/* </form> */}
+              </div>
+            </div>
+            <div class="welcome-hero-serch">
+              <form onSubmit={handleSearch}>
+                <button class="welcome-hero-btn">
+                  search  <i data-feather="search"></i>
+                </button>
+              </form>
+            </div>
+            <div class="welcome-hero-serch">
+              <form onSubmit={handleGet}>
+                <button class="welcome-hero-btn">
+                  all courses  <i data-feather="search"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
       <div style={{ padding: "20px" }}>
         <form onSubmit={handleSearch}>
           <input
@@ -84,22 +185,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-      {user ? (
-        <p>Username: {user.username}</p>
-      )
-        : (
 
-          <div style={{ padding: "20px" }}>
-            <h1>ระบบสมัครสมาชิก & ล็อกอิน</h1>
-            <nav>
-              <Link to="/register" style={{ marginRight: "10px" }}>สมัครสมาชิก</Link>
-              <Link to="/login" style={{ marginRight: "10px" }}>เข้าสู่ระบบ</Link>
-              <Link to="/profile">โปรไฟล์</Link>
-            </nav>
-
-          </div>
-
-        )}
     </div>
   );
 };
