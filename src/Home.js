@@ -27,7 +27,7 @@ const Home = () => {
     }
   }, []);
 
-
+  console.log("userrrr", user);
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
