@@ -48,7 +48,7 @@ const CourseDetail = () => {
     setMessage("start course");
   }
 
-  console.log("coursss detail", course)
+  console.log("coursss detail", course, user)
   if (!course) return <p>Loading...</p>;
 
   return (

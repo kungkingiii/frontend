@@ -37,7 +37,7 @@ const Home = () => {
     }
   }, []);
 
-  console.log("userrrr", user, findCourse);
+  console.log("userrrr", user, findCourse, courses);
   const handleSearch = async (e) => {
     e.preventDefault();
     try {

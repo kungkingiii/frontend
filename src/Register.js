@@ -19,12 +19,12 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    setMessage(""); // เคลียร์ข้อความก่อนหน้า
+    setMessage("");
 
     try {
       await axios.post(`${URL}/register`, { username, name, email, phone, password });
       setMessage("success! please login");
-      setTimeout(() => navigate("/login"), 2000); // รอ 2 วิ แล้วไปหน้า Login
+      setTimeout(() => navigate("/login"), 2000); // wait for 2 sec
     } catch (err) {
       console.log(err)
       setMessage("username or email already exist!");

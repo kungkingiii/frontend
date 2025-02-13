@@ -11,12 +11,12 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError(""); // เคลียร์ error ก่อนหน้า
+    setError("");
 
     try {
       const res = await axios.post(`${URL}/login`, { username, password });
-      localStorage.setItem("token", res.data.token); // บันทึก Token ใน localStorage
-      navigate("/profile"); // ไปที่หน้าโปรไฟล์
+      localStorage.setItem("token", res.data.token);
+      navigate("/profile");
     } catch (err) {
       setError("username or password not correct!");
     }
